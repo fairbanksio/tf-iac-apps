@@ -1,5 +1,5 @@
 data "digitalocean_kubernetes_cluster" "k8s" {
-  name = "fairbanks-io"
+  name = var.do_cluster_name
 }
 
 data "kubernetes_service" "nginx-ingress-controller" {
