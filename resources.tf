@@ -50,7 +50,7 @@ resource "cloudflare_record" "kube" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "kube" {
+resource "cloudflare_record" "kube-fairbanks" {
   zone_id = var.cloudflare_zone_id_fairbanks
   name    = "kube"
   proxied = true
