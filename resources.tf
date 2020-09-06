@@ -1,3 +1,23 @@
+## Status Pages
+
+resource "cloudflare_record" "status" {
+  zone_id = var.cloudflare_zone_id
+  name    = "status"
+  proxied = false
+  value   = "stats.uptimerobot.com"
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "status-fairbanks" {
+  zone_id = var.cloudflare_zone_id_fairbanks
+  name    = "status"
+  proxied = false
+  value   = "stats.uptimerobot.com"
+  type    = "CNAME"
+  ttl     = 1
+}
+
 ## docker-node-app
 
 resource "kubernetes_namespace" "docker-node-app" {
@@ -27,15 +47,6 @@ resource "cloudflare_record" "kube" {
   proxied = true
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
   type    = "A"
-  ttl     = 1
-}
-
-resource "cloudflare_record" "status" {
-  zone_id = var.cloudflare_zone_id
-  name    = "status"
-  proxied = false
-  value   = "stats.uptimerobot.com"
-  type    = "CNAME"
   ttl     = 1
 }
 
@@ -83,7 +94,7 @@ resource "helm_release" "nextcloud" {
 }
 
 resource "cloudflare_record" "files" {
-  zone_id = var.cloudflare_zone_id
+  zone_id = var.cloudflare_zone_id_fairbanks
   name    = "files"
   proxied = true
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
