@@ -50,6 +50,15 @@ resource "cloudflare_record" "kube" {
   ttl     = 1
 }
 
+resource "cloudflare_record" "kube" {
+  zone_id = var.cloudflare_zone_id_fairbanks
+  name    = "kube"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
+}
+
 ## Nextcloud
 
 resource "kubernetes_namespace" "nextcloud" {
