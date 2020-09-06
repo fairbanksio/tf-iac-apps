@@ -30,6 +30,15 @@ resource "cloudflare_record" "kube" {
   ttl     = 1
 }
 
+resource "cloudflare_record" "status" {
+  zone_id = var.cloudflare_zone_id
+  name    = "status"
+  proxied = false
+  value   = "stats.uptimerobot.com"
+  type    = "CNAME"
+  ttl     = 1
+}
+
 ## Nextcloud
 
 resource "kubernetes_namespace" "nextcloud" {
