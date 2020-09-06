@@ -39,6 +39,14 @@ resource "helm_release" "docker-node-app" {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
+  set {
+    name  = "ingress.hosts[1].host"
+    value = cloudflare_record.kube-fairbanks.hostname
+  }
+  set {
+    name  = "ingress.hosts[1].paths[0]"
+    value = "/"
+  }
 }
 
 resource "cloudflare_record" "kube" {
