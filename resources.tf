@@ -209,7 +209,7 @@ resource "helm_release" "f5-web" {
   }
 }
 
-resource "cloudflare_record" "f5oclock" {
+resource "cloudflare_record" "f5-web" {
   zone_id = var.cloudflare_zone_id
   name    = "f5"
   proxied = true
