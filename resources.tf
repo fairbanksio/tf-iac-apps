@@ -169,18 +169,6 @@ resource "helm_release" "f5-api" {
   name       = "f5-api"
   namespace  = "f5oclock"
   set {
-    name  = "ingress.enabled"
-    value = "true"
-  }
-  set {
-    name  = "ingress.hosts[0].host"
-    value = cloudflare_record.f5oclock.hostname
-  }
-  set {
-    name  = "ingress.hosts[0].paths[0]"
-    value = "/"
-  }
-  set {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
   }
@@ -197,7 +185,7 @@ resource "helm_release" "f5-web" {
   }
   set {
     name  = "ingress.hosts[0].host"
-    value = cloudflare_record.f5oclock.hostname
+    value = cloudflare_record.f5-web.hostname
   }
   set {
     name  = "ingress.hosts[0].paths[0]"
@@ -209,7 +197,7 @@ resource "helm_release" "f5-web" {
   }
 }
 
-resource "cloudflare_record" "f5oclock" {
+resource "cloudflare_record" "f5-web" {
   zone_id = var.cloudflare_zone_id
   name    = "f5"
   proxied = true
