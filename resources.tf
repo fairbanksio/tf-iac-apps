@@ -155,4 +155,65 @@ resource "cloudflare_record" "tetris" {
   ttl     = 1
 }
 
+## F5
 
+resource "kubernetes_namespace" "f5oclock" {
+  metadata {
+    name = "f5oclock"
+  }
+}
+
+resource "helm_release" "f5-api" {
+  repository = "https://jonfairbanks.github.io/helm-charts"
+  chart      = "f5-api"
+  name       = "f5-api"
+  namespace  = "f5oclock"
+  set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
+  set {
+    name  = "ingress.hosts[0].host"
+    value = cloudflare_record.f5oclock.hostname
+  }
+  set {
+    name  = "ingress.hosts[0].paths[0]"
+    value = "/"
+  }
+  set {
+    name  = "MONGO_URI"
+    value = var.f5_mongo_uri
+  }
+}
+
+resource "helm_release" "f5-web" {
+  repository = "https://jonfairbanks.github.io/helm-charts"
+  chart      = "f5-web"
+  name       = "f5-web"
+  namespace  = "f5oclock"
+  set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
+  set {
+    name  = "ingress.hosts[0].host"
+    value = cloudflare_record.f5oclock.hostname
+  }
+  set {
+    name  = "ingress.hosts[0].paths[0]"
+    value = "/"
+  }
+  set {
+    name  = "MONGO_URI"
+    value = var.f5_mongo_uri
+  }
+}
+
+resource "cloudflare_record" "f5oclock" {
+  zone_id = var.cloudflare_zone_id
+  name    = "f5"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
+}
