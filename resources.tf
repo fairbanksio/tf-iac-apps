@@ -134,7 +134,7 @@ resource "helm_release" "tetris_pretty-default-backend" {
   namespace  = "tetris"
   set {
     name  = "bgColor"
-    value = "#112233"
+    value = "#202025"
   }
   set {
     name  = "brandingText"
