@@ -167,7 +167,7 @@ resource "helm_release" "tetris" {
   }
   set {
     name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/custom-http-errors"
-    value = "404"
+    value = "404\\,503\\,501"
     type  = "string"
   }
 }
