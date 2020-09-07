@@ -224,3 +224,51 @@ resource "helm_release" "halbert" {
     value = var.hubot_slack_token
   }
 }
+
+## JSON Formatter
+
+resource "kubernetes_namespace" "json-formatter" {
+  metadata {
+    name = "json-formatter"
+  }
+}
+
+resource "helm_release" "json-formatter" {
+  repository = "https://jonfairbanks.github.io/helm-charts"
+  chart      = "json-formatter"
+  name       = "json-formatter"
+  namespace  = "json-formatter"
+}
+
+resource "cloudflare_record" "json-formatter" {
+  zone_id = var.cloudflare_zone_id_fairbanks
+  name    = "json"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
+}
+
+## Markdown Editor
+
+resource "kubernetes_namespace" "markdown-editor" {
+  metadata {
+    name = "markdown-editor"
+  }
+}
+
+resource "helm_release" "markdown-editor" {
+  repository = "https://jonfairbanks.github.io/helm-charts"
+  chart      = "markdown-editor"
+  name       = "markdown-editor"
+  namespace  = "markdown-editor"
+}
+
+resource "cloudflare_record" "markdown-editor" {
+  zone_id = var.cloudflare_zone_id_fairbanks
+  name    = "md"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
+}
