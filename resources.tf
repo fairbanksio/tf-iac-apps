@@ -238,6 +238,18 @@ resource "helm_release" "json-formatter" {
   chart      = "json-formatter"
   name       = "json-formatter"
   namespace  = "json-formatter"
+  set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
+  set {
+    name  = "ingress.hosts[0].host"
+    value = cloudflare_record.json-formatter.hostname
+  }
+  set {
+    name  = "ingress.hosts[0].paths[0]"
+    value = "/"
+  }
 }
 
 resource "cloudflare_record" "json-formatter" {
@@ -262,6 +274,18 @@ resource "helm_release" "markdown-editor" {
   chart      = "markdown-editor"
   name       = "markdown-editor"
   namespace  = "markdown-editor"
+  set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
+  set {
+    name  = "ingress.hosts[0].host"
+    value = cloudflare_record.markdown-editor.hostname
+  }
+  set {
+    name  = "ingress.hosts[0].paths[0]"
+    value = "/"
+  }
 }
 
 resource "cloudflare_record" "markdown-editor" {
