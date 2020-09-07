@@ -198,10 +198,29 @@ resource "helm_release" "f5-web" {
 }
 
 resource "cloudflare_record" "f5-web" {
-  zone_id = var.cloudflare_zone_id
+  zone_id = var.cloudflare_zone_id_fairbanks
   name    = "f5"
   proxied = true
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
   type    = "A"
   ttl     = 1
+}
+
+## Halbert
+
+resource "kubernetes_namespace" "halbert" {
+  metadata {
+    name = "halbert"
+  }
+}
+
+resource "helm_release" "halbert" {
+  repository = "https://jonfairbanks.github.io/helm-charts"
+  chart      = "halbert"
+  name       = "halbert"
+  namespace  = "halbert"
+  set {
+    name  = "HUBOT_SLACK_TOKEN"
+    value = var.hubot_slack_token
+  }
 }
