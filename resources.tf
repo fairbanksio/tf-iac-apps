@@ -11,6 +11,14 @@ resource "helm_release" "jonfairbanks-homepage" {
   chart      = "jonfairbanks-homepage"
   name       = "jonfairbanks-homepage"
   namespace  = "jonfairbanks"
+  set {
+    name  = "ingress.hosts[0].host"
+    value = cloudflare_record.jonfairbanks-homepage.hostname
+  }
+  set {
+    name  = "ingress.hosts[0].paths[0]"
+    value = "/"
+  }
 }
 
 resource "cloudflare_record" "jonfairbanks-homepage" {
