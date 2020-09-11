@@ -12,6 +12,10 @@ resource "helm_release" "jonfairbanks-homepage" {
   name       = "jonfairbanks-homepage"
   namespace  = "jonfairbanks"
   set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
+  set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.jonfairbanks-homepage.hostname
   }
