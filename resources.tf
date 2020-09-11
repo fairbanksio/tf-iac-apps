@@ -151,6 +151,21 @@ resource "kubernetes_namespace" "tetris" {
   }
 }
 
+resource "helm_release" "tetris_pretty-default-backend" {
+  name       = "pretty-default-backend"
+  repository = "https://h.cfcr.io/fairbanks.io/default"
+  chart      = "pretty-default-backend"
+  namespace  = "tetris"
+  set {
+    name  = "bgColor"
+    value = "#202025"
+  }
+  set {
+    name  = "brandingText"
+    value = "https://github.com/bsord/tetris"
+  }
+}
+
 resource "helm_release" "tetris" {
   repository = "https://bsord.github.io/helm-charts"
   chart      = "tetris"
@@ -167,6 +182,17 @@ resource "helm_release" "tetris" {
   set {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
+  }
+
+  set {
+    name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/default-backend"
+    value = "pretty-default-backend"
+    type  = "string"
+  }
+  set {
+    name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/custom-http-errors"
+    value = "404\\,503\\,501"
+    type  = "string"
   }
 }
 
