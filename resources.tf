@@ -1,3 +1,27 @@
+## Home Pages
+
+resource "kubernetes_namespace" "jonfairbanks" {
+  metadata {
+    name = "jonfairbanks"
+  }
+}
+
+resource "helm_release" "jonfairbanks-homepage" {
+  repository = "https://jonfairbanks.github.io/helm-charts"
+  chart      = "jonfairbanks-homepage"
+  name       = "jonfairbanks-homepage"
+  namespace  = "jonfairbanks"
+}
+
+resource "cloudflare_record" "jonfairbanks-homepage" {
+  zone_id = var.cloudflare_zone_id_fairbanks
+  name    = "@"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
+}
+
 ## Status Pages
 
 resource "cloudflare_record" "status" {
