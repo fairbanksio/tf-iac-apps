@@ -6,3 +6,6 @@ variable "cloudflare_zone_id" {}
 variable "cloudflare_zone_id_fairbanks" {}
 variable "f5_mongo_uri" {}
 variable "hubot_slack_token" {}
+variable "tiles-api_mongouri" {}
+variable "tiles-api_redishost" {}
+variable "tiles-api_redispassword" {}
