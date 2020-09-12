@@ -9,3 +9,4 @@ variable "hubot_slack_token" {}
 variable "tiles-api_mongouri" {}
 variable "tiles-api_redishost" {}
 variable "tiles-api_redispassword" {}
+variable "ppsandbox_mongouri" {}
