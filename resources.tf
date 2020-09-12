@@ -468,7 +468,7 @@ resource "helm_release" "tiles-api" {
   chart      = "tiles-api"
   name       = "tiles-api"
   namespace  = "bsord-tiles"
-  set {
+  set_sensitive {
     name  = "mongoURI"
     value = var.tiles-api_mongouri
   }
@@ -476,7 +476,7 @@ resource "helm_release" "tiles-api" {
     name  = "redisHost"
     value = var.tiles-api_redishost
   }
-  set {
+  set_sensitive {
     name  = "redisPassword"
     value = var.tiles-api_redispassword
   }
@@ -519,7 +519,7 @@ resource "helm_release" "tiles-session-cache" {
   chart      = "redis"
   name       = "tiles-session-cache"
   namespace  = "bsord-tiles"
-  set {
+  set_sensitive {
     name  = "password"
     value = var.tiles-api_redispassword
   }
