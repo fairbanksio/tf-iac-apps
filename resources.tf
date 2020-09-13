@@ -264,7 +264,7 @@ resource "helm_release" "f5-api" {
   chart      = "f5-api"
   name       = "f5-api"
   namespace  = "f5oclock"
-  set {
+  set_sensitive {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
   }
@@ -287,7 +287,7 @@ resource "helm_release" "f5-web" {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
-  set {
+  set_sensitive {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
   }
@@ -315,7 +315,7 @@ resource "helm_release" "halbert" {
   chart      = "halbert"
   name       = "halbert"
   namespace  = "halbert"
-  set {
+  set_sensitive {
     name  = "HUBOT_SLACK_TOKEN"
     value = var.hubot_slack_token
   }
@@ -461,8 +461,6 @@ resource "cloudflare_record" "tiles-client" {
 
 ## Tiles-API
 
-
-
 resource "helm_release" "tiles-api" {
   repository = "https://bsord.github.io/helm-charts"
   chart      = "tiles-api"
@@ -538,6 +536,7 @@ resource "helm_release" "tiles-session-cache" {
 }
 
 # PayPal Sandbox Dashboard
+
 resource "kubernetes_namespace" "paypal-sandbox-dashboard" {
   metadata {
     name = "paypal-sandbox-dashboard"
