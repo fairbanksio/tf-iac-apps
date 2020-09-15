@@ -163,10 +163,6 @@ resource "helm_release" "nextcloud" {
     value = "/"
   }
   set {
-    name  = "mariadb.enabled"
-    value = "true"
-  }
-  set {
     name  = "volumePermissions.enabled"
     value = "true"
   }
