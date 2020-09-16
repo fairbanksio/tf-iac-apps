@@ -171,8 +171,24 @@ resource "helm_release" "nextcloud" {
     value = "true"
   }
   set {
+    name  = "externalDatabase.host"
+    value = var.nextcloud_mariadb_host
+  }
+  set {
+    name  = "externalDatabase.user"
+    value = var.nextcloud_mariadb_user
+  }
+  set {
+    name  = "externalDatabase.password"
+    value = var.nextcloud_mariadb_password
+  }
+  set {
     name  = "internalDatabase.enabled"
     value = "false"
+  }
+  set {
+    name  = "persistence.enabled"
+    value = "true"
   }
 }
 
