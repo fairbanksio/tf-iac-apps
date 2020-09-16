@@ -11,3 +11,6 @@ variable "tiles-api_mongouri" {}
 variable "tiles-api_redishost" {}
 variable "tiles-api_redispassword" {}
 variable "ppsandbox_mongouri" {}
+variable "nextcloud_mariadb_host" {}
+variable "nextcloud_mariadb_user" {}
+variable "nextcloud_mariadb_password" {}
