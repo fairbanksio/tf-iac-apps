@@ -284,6 +284,10 @@ resource "helm_release" "f5-api" {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
   }
+  set {
+    name  = "image.tag"
+    value = "1.0.0"
+  }
 }
 
 resource "helm_release" "f5-web" {
@@ -306,6 +310,10 @@ resource "helm_release" "f5-web" {
   set_sensitive {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
+  }
+  set {
+    name  = "image.tag"
+    value = "1.0.0"
   }
 }
 
