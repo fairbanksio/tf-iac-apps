@@ -96,7 +96,7 @@ resource "kubernetes_namespace" "docker-node-app" {
   }
 }
 
-resource "helm_release" "docker-node-app" {
+/* resource "helm_release" "docker-node-app" {
   repository = "https://jonfairbanks.github.io/helm-charts"
   chart      = "docker-node-app"
   name       = "docker-node-app"
@@ -117,7 +117,7 @@ resource "helm_release" "docker-node-app" {
     name  = "ingress.hosts[1].paths[0]"
     value = "/"
   }
-}
+} */
 
 resource "cloudflare_record" "kube" {
   zone_id = var.cloudflare_zone_id
@@ -271,7 +271,7 @@ resource "kubernetes_namespace" "f5oclock" {
   }
 }
 
-resource "helm_release" "f5-api" {
+/* resource "helm_release" "f5-api" {
   repository = "https://jonfairbanks.github.io/helm-charts"
   chart      = "f5-api"
   name       = "f5-api"
@@ -280,7 +280,7 @@ resource "helm_release" "f5-api" {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
   }
-}
+} */
 
 resource "helm_release" "f5-web" {
   repository = "https://jonfairbanks.github.io/helm-charts"
@@ -341,7 +341,7 @@ resource "kubernetes_namespace" "json-formatter" {
   }
 }
 
-resource "helm_release" "json-formatter" {
+/* resource "helm_release" "json-formatter" {
   repository = "https://jonfairbanks.github.io/helm-charts"
   chart      = "json-formatter"
   name       = "json-formatter"
@@ -358,7 +358,7 @@ resource "helm_release" "json-formatter" {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
-}
+} */
 
 resource "cloudflare_record" "json-formatter" {
   zone_id = var.cloudflare_zone_id_fairbanks
@@ -377,7 +377,7 @@ resource "kubernetes_namespace" "markdown-editor" {
   }
 }
 
-resource "helm_release" "markdown-editor" {
+/* resource "helm_release" "markdown-editor" {
   repository = "https://jonfairbanks.github.io/helm-charts"
   chart      = "markdown-editor"
   name       = "markdown-editor"
@@ -394,7 +394,7 @@ resource "helm_release" "markdown-editor" {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
-}
+} */
 
 resource "cloudflare_record" "markdown-editor" {
   zone_id = var.cloudflare_zone_id_fairbanks
