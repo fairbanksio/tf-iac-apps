@@ -343,6 +343,10 @@ resource "helm_release" "halbert" {
     name  = "HUBOT_SLACK_TOKEN"
     value = var.hubot_slack_token
   }
+  set {
+    name  = "image.tag"
+    value = "2.0.0"
+  }
 }
 
 ## JSON Formatter
@@ -369,6 +373,10 @@ resource "helm_release" "json-formatter" {
   set {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
+  }
+  set {
+    name  = "image.tag"
+    value = "0.1.0"
   }
 }
 
@@ -405,6 +413,10 @@ resource "helm_release" "markdown-editor" {
   set {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
+  }
+  set {
+    name  = "image.tag"
+    value = "0.1.0"
   }
 }
 
