@@ -313,7 +313,7 @@ resource "helm_release" "f5-web" {
   }
   set {
     name  = "image.tag"
-    value = "1.0.0"
+    value = "1.0.1"
   }
 }
 
