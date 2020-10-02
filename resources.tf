@@ -118,6 +118,10 @@ resource "helm_release" "docker-node-app" {
     value = "/"
   }
   set {
+    name  = "resources.requests.cpu"
+    value = "100m"
+  }
+  set {
     name  = "image.tag"
     value = "2.0.4"
   }
