@@ -344,7 +344,7 @@ resource "helm_release" "halbert" {
   name       = "halbert"
   namespace  = "halbert"
   set_sensitive {
-    name  = "HUBOT_SLACK_TOKEN"
+    name  = "slack.token"
     value = var.hubot_slack_token
   }
   set {
