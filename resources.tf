@@ -629,35 +629,3 @@ resource "helm_release" "sonny" {
     value = var.hubot_slack_token_sonny
   }
 }
-
-## demo
-
-resource "kubernetes_namespace" "demo" {
-  metadata {
-    name = "demo"
-  }
-}
-
-resource "helm_release" "demo" {
-  repository = "https://jonfairbanks.github.io/helm-charts"
-  chart      = "docker-node-app"
-  name       = "docker-node-app"
-  namespace  = "demo"
-  set {
-    name  = "ingress.hosts[0].host"
-    value = cloudflare_record.demo.hostname
-  }
-  set {
-    name  = "ingress.hosts[0].paths[0]"
-    value = "/"
-  }
-}
-
-resource "cloudflare_record" "demo" {
-  zone_id = var.cloudflare_zone_id_fairbanks
-  name    = "demo"
-  proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
-  type    = "A"
-  ttl     = 1
-}
