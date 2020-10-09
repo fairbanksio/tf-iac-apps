@@ -249,7 +249,6 @@ resource "helm_release" "tetris" {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
-
   set {
     name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/default-backend"
     value = "pretty-default-backend"
