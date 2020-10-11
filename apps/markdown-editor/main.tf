@@ -28,7 +28,7 @@ resource "helm_release" "markdown-editor" {
 }
 
 resource "cloudflare_record" "markdown-editor" {
-  zone_id = var.cloudflare_zone_id_fairbanks
+  zone_id = var.cloudflare_zone_id
   name    = "md"
   proxied = true
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
