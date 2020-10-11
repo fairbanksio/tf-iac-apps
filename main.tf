@@ -8,6 +8,10 @@ terraform {
   }
 }
 
+locals = {
+
+}
+
 module "kube-fairbanks-dev" {
   source = "./apps/docker-node-app"
   providers = {
@@ -19,6 +23,7 @@ module "kube-fairbanks-dev" {
 
 module "kube-bsord-dev" {
   source = "./apps/docker-node-app"
+  namespace = "docker-node-app-bsord"
   providers = {
     cloudflare = cloudflare
   }
