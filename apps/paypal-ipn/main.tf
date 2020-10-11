@@ -32,7 +32,7 @@ resource "helm_release" "paypal-ipn" {
 }
 
 resource "cloudflare_record" "paypal-ipn" {
-  zone_id = var.cloudflare_zone_id_fairbanks
+  zone_id = var.cloudflare_zone_id
   name    = "ipn"
   proxied = true
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
