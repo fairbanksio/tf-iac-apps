@@ -101,10 +101,10 @@ module "nextcloud" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
-  nextcloud_mariadb_host = "${var.nextcloud_mariadb_host}"
-  nextcloud_mariadb_user = "${var.nextcloud_mariadb_user}"
+  cloudflare_zone_id         = "${var.cloudflare_zone_id_fairbanks}"
+  do_cluster_name            = "${var.do_cluster_name}"
+  nextcloud_mariadb_host     = "${var.nextcloud_mariadb_host}"
+  nextcloud_mariadb_user     = "${var.nextcloud_mariadb_user}"
   nextcloud_mariadb_password = "${var.nextcloud_mariadb_password}"
 }
 
@@ -156,9 +156,9 @@ module "tiles" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id}"
-  do_cluster_name    = "${var.do_cluster_name}"
-  tiles-api_mongouri = "${var.tiles-api_mongouri}"
-  tiles-api_redishost = "${var.tiles-api_redishost}"
+  cloudflare_zone_id      = "${var.cloudflare_zone_id}"
+  do_cluster_name         = "${var.do_cluster_name}"
+  tiles-api_mongouri      = "${var.tiles-api_mongouri}"
+  tiles-api_redishost     = "${var.tiles-api_redishost}"
   tiles-api_redispassword = "${var.tiles-api_redispassword}"
 }
