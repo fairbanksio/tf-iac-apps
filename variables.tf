@@ -10,6 +10,7 @@ variable "hubot_slack_token_sonny" {}
 variable "tiles-api_mongouri" {}
 variable "tiles-api_redishost" {}
 variable "tiles-api_redispassword" {}
+variable "ppipn_mongouri" {}
 variable "ppsandbox_mongouri" {}
 variable "nextcloud_mariadb_host" {}
 variable "nextcloud_mariadb_user" {}
