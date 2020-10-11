@@ -22,7 +22,7 @@ module "kube-fairbanks-dev" {
 }
 
 module "kube-bsord-dev" {
-  source = "./apps/docker-node-app"
+  source    = "./apps/docker-node-app"
   namespace = "docker-node-app-bsord"
   providers = {
     cloudflare = cloudflare
