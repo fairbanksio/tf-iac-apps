@@ -15,5 +15,4 @@ module "docker-node-app" {
   }
   cloudflare_zone_id           = "${var.cloudflare_zone_id}"
   cloudflare_zone_id_fairbanks = "${var.cloudflare_zone_id_fairbanks}"
-  nginx-ingress-controller     = "${var.ingress-nginx-ingress-controller}"
 }
