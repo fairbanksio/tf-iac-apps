@@ -94,6 +94,18 @@ module "markdown-editor" {
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
+## PayPal Sandbox Dashboard
+
+module "paypal-sandbox-dashboard" {
+  source = "./apps/paypal-sandbox-dashboard"
+  providers = {
+    cloudflare = cloudflare
+  }
+  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
+  do_cluster_name    = "${var.do_cluster_name}"
+  ppsandbox_mongouri = "${var.ppsandbox_mongouri}"
+}
+
 ## Status Page(s)
 
 module "statuspage-jonfairbanks" {
