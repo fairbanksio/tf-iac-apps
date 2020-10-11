@@ -47,7 +47,7 @@ module "homepage-bsord" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
@@ -135,7 +135,7 @@ module "statuspage-bsord" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
 }
 
 ## Tetris
@@ -145,7 +145,7 @@ module "tetris" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
@@ -156,7 +156,7 @@ module "tiles" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id      = "${var.cloudflare_zone_id}"
+  cloudflare_zone_id      = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name         = "${var.do_cluster_name}"
   tiles-api_mongouri      = "${var.tiles-api_mongouri}"
   tiles-api_redishost     = "${var.tiles-api_redishost}"
