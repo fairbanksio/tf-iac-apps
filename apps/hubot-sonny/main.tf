@@ -11,6 +11,6 @@ resource "helm_release" "sonny" {
   namespace  = "sonny"
   set_sensitive {
     name  = "HUBOT_SLACK_TOKEN"
-    value = var.hubot_slack_token_sonny
+    value = var.hubot_slack_token
   }
 }
