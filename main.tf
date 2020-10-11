@@ -55,13 +55,13 @@ module "homepage-jonfairbanks" {
 }
 
 module "hubot-halbert" {
-  source = "./apps/hubot-halbert"
-  hubot_slack_token  = "${var.hubot_slack_token}"
+  source            = "./apps/hubot-halbert"
+  hubot_slack_token = "${var.hubot_slack_token}"
 }
 
 module "hubot-sonny" {
-  source = "./apps/hubot-sonny"
-  hubot_slack_token  = "${var.hubot_slack_token_sonny}"
+  source            = "./apps/hubot-sonny"
+  hubot_slack_token = "${var.hubot_slack_token_sonny}"
 }
 
 module "json-formatter" {
