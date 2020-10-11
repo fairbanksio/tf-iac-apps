@@ -8,10 +8,6 @@ terraform {
   }
 }
 
-locals = {
-
-}
-
 module "kube-fairbanks-dev" {
   source = "./apps/docker-node-app"
   providers = {
