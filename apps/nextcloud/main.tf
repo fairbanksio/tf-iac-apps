@@ -52,7 +52,7 @@ resource "helm_release" "nextcloud" {
 }
 
 resource "cloudflare_record" "files" {
-  zone_id = var.cloudflare_zone_id_fairbanks
+  zone_id = var.cloudflare_zone_id
   name    = "files"
   proxied = true
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip

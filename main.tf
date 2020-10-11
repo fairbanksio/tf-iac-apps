@@ -94,6 +94,20 @@ module "markdown-editor" {
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
+## Nextcloud
+
+module "nextcloud" {
+  source = "./apps/nextcloud"
+  providers = {
+    cloudflare = cloudflare
+  }
+  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
+  do_cluster_name    = "${var.do_cluster_name}"
+  nextcloud_mariadb_host = "${var.nextcloud_mariadb_host}"
+  nextcloud_mariadb_user = "${var.nextcloud_mariadb_user}"
+  nextcloud_mariadb_password = "${var.nextcloud_mariadb_password}"
+}
+
 ## PayPal Sandbox Dashboard
 
 module "paypal-sandbox-dashboard" {
