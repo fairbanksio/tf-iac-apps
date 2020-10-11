@@ -2,15 +2,15 @@ variable "do_token" {}
 variable "do_cluster_name" {}
 variable "cloudflare_email" {}
 variable "cloudflare_api_key" {}
-variable "cloudflare_zone_id" {}
 variable "cloudflare_zone_id_bsord" {}
 variable "cloudflare_zone_id_fairbanks" {}
 variable "f5_mongo_uri" {}
-variable "hubot_slack_token" {}
+variable "hubot_slack_token_halbert" {}
 variable "hubot_slack_token_sonny" {}
 variable "tiles-api_mongouri" {}
 variable "tiles-api_redishost" {}
 variable "tiles-api_redispassword" {}
+variable "ppipn_mongouri" {}
 variable "ppsandbox_mongouri" {}
 variable "nextcloud_mariadb_host" {}
 variable "nextcloud_mariadb_user" {}

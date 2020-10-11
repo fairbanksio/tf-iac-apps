@@ -64,7 +64,7 @@ module "homepage-jonfairbanks" {
 
 module "hubot-halbert" {
   source            = "./apps/hubot-halbert"
-  hubot_slack_token = "${var.hubot_slack_token}"
+  hubot_slack_token = "${var.hubot_slack_token_halbert}"
 }
 
 module "hubot-sonny" {
@@ -108,7 +108,17 @@ module "nextcloud" {
   nextcloud_mariadb_password = "${var.nextcloud_mariadb_password}"
 }
 
-## PayPal Sandbox Dashboard
+## PayPal
+
+/* module "paypal-ipn" {
+  source = "./apps/paypal-ipn"
+  providers = {
+    cloudflare = cloudflare
+  }
+  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
+  do_cluster_name    = "${var.do_cluster_name}"
+  ppipn_mongouri = "${var.ppipn_mongouri}"
+} */
 
 module "paypal-sandbox-dashboard" {
   source = "./apps/paypal-sandbox-dashboard"
