@@ -10,7 +10,7 @@ terraform {
 
 module "docker-node-app" {
   source = "./apps/docker-node-app"
-  name = "kube.fairbanks"
+  name   = "kube.fairbanks"
   providers = {
     kubernetes = kubernetes
     cloudflare = cloudflare
