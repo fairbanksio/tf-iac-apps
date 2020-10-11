@@ -15,4 +15,5 @@ module "docker-node-app" {
   }
   cloudflare_zone_id           = "${var.cloudflare_zone_id}"
   cloudflare_zone_id_fairbanks = "${var.cloudflare_zone_id_fairbanks}"
+  do-cluster-name              = "${var.do_cluster_name}"
 }
