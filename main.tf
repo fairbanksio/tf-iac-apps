@@ -64,7 +64,7 @@ module "homepage-jonfairbanks" {
 
 module "hubot-halbert" {
   source            = "./apps/hubot-halbert"
-  hubot_slack_token = "${var.hubot_slack_token}"
+  hubot_slack_token = "${var.hubot_slack_token_halbert}"
 }
 
 module "hubot-sonny" {
