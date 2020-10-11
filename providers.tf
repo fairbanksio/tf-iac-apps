@@ -1,14 +1,6 @@
-###
-# DigitalOcean
-###
-
 provider "digitalocean" {
   token = var.do_token
 }
-
-###
-# Helm
-###
 
 provider "helm" {
   kubernetes {

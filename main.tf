@@ -1,7 +1,3 @@
-###
-# Terraform Cloud
-###
-
 terraform {
   backend "remote" {
     organization = "Fairbanks-io"
@@ -11,4 +7,3 @@ terraform {
     }
   }
 }
-
