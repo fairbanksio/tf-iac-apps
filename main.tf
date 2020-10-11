@@ -8,12 +8,6 @@ terraform {
   }
 }
 
-locals {
-  providers = {
-    cloudflare = cloudflare
-  }
-}
-
 module "docker-node-app" {
   source = "./apps/docker-node-app"
   providers = {
