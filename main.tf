@@ -13,8 +13,8 @@ module "kube-fairbanks-dev" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id           = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name              = "${var.do_cluster_name}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
+  do_cluster_name    = "${var.do_cluster_name}"
 }
 
 module "kube-bsord-dev" {
@@ -22,6 +22,6 @@ module "kube-bsord-dev" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id           = "${var.cloudflare_zone_id}"
-  do_cluster_name              = "${var.do_cluster_name}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id}"
+  do_cluster_name    = "${var.do_cluster_name}"
 }
