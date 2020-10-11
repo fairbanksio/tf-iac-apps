@@ -17,11 +17,12 @@ module "kube-fairbanks-dev" {
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
-module "kube-bsord-dev" {
-  source = "./apps/docker-node-app"
+/* module "kube-bsord-dev" {
+  source    = "./apps/docker-node-app"
+  namespace = "docker-node-app-bsord"
   providers = {
     cloudflare = cloudflare
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id}"
   do_cluster_name    = "${var.do_cluster_name}"
-}
+} */
