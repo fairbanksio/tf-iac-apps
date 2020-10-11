@@ -99,7 +99,7 @@ module "statuspage-bsord" {
 }
 
 module "tetris" {
-  source = "./apps/statuspage-jonfairbanks"
+  source = "./apps/tetris"
   providers = {
     cloudflare = cloudflare
   }
