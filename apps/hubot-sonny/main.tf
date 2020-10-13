@@ -3,7 +3,7 @@ resource "kubernetes_namespace" "sonny" {
     name = "sonny"
   }
 }
-
+/* 
 resource "helm_release" "sonny" {
   repository = "https://bsord.github.io/helm-charts"
   chart      = "sonny"
@@ -13,4 +13,4 @@ resource "helm_release" "sonny" {
     name  = "HUBOT_SLACK_TOKEN"
     value = var.hubot_slack_token
   }
-}
+} */
