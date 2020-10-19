@@ -20,7 +20,7 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
     value = "https://github.com/bsord"
   }
 }
-
+/* 
 resource "helm_release" "rcvr-web" {
   repository = "https://h.cfcr.io/bsord/charts"
   chart      = "rcvr-web"
@@ -53,7 +53,7 @@ resource "helm_release" "rcvr-web" {
     value = "404\\,503\\,501"
     type  = "string"
   }
-}
+} */
 
 resource "cloudflare_record" "rcvr-web" {
   zone_id = var.cloudflare_zone_id
