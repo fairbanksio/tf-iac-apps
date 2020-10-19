@@ -19,14 +19,14 @@ module "docker-node-app" {
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
-/* module "docker-node-app-bsord" {
+module "docker-node-app-bsord" {
   source    = "./apps/docker-node-app"
   providers = {
     cloudflare = cloudflare
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id}"
   do_cluster_name    = "${var.do_cluster_name}"
-} */
+}
 
 ## F5 O'Clock
 
