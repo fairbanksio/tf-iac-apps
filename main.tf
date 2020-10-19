@@ -67,11 +67,6 @@ module "hubot-halbert" {
   hubot_slack_token = "${var.hubot_slack_token_halbert}"
 }
 
-module "hubot-sonny" {
-  source            = "./apps/hubot-sonny"
-  hubot_slack_token = "${var.hubot_slack_token_sonny}"
-}
-
 ## JSON Formatter
 
 module "json-formatter" {
