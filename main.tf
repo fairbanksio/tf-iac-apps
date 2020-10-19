@@ -173,8 +173,8 @@ module "rcvr" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id      = "${var.cloudflare_zone_id_bsord}"
-  do_cluster_name         = "${var.do_cluster_name}"
-  rcvr_dbpassword      = "${var.rcvr_dbpassword}"
-  rcvr_redispassword      = "${var.rcvr_redispassword}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
+  do_cluster_name    = "${var.do_cluster_name}"
+  rcvr_dbpassword    = "${var.rcvr_dbpassword}"
+  rcvr_redispassword = "${var.rcvr_redispassword}"
 }
