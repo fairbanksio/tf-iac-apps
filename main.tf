@@ -19,14 +19,14 @@ module "docker-node-app" {
   do_cluster_name    = "${var.do_cluster_name}"
 }
 
-module "docker-node-app-bsord" {
+/* module "docker-node-app-bsord" {
   source    = "./apps/docker-node-app"
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
-}
+} */
 
 ## F5 O'Clock
 
@@ -166,4 +166,15 @@ module "tiles" {
   tiles-api_mongouri      = "${var.tiles-api_mongouri}"
   tiles-api_redishost     = "${var.tiles-api_redishost}"
   tiles-api_redispassword = "${var.tiles-api_redispassword}"
+}
+
+module "rcvr" {
+  source = "./apps/rcvr"
+  providers = {
+    cloudflare = cloudflare
+  }
+  cloudflare_zone_id      = "${var.cloudflare_zone_id_bsord}"
+  do_cluster_name         = "${var.do_cluster_name}"
+  rcvr_dbpassword      = "${var.rcvr_dbpassword}"
+  rcvr_redispassword      = "${var.rcvr_redispassword}"
 }
