@@ -24,7 +24,7 @@ module "docker-node-app" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id}"
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
 } */
 
@@ -65,11 +65,6 @@ module "homepage-jonfairbanks" {
 module "hubot-halbert" {
   source            = "./apps/hubot-halbert"
   hubot_slack_token = "${var.hubot_slack_token_halbert}"
-}
-
-module "hubot-sonny" {
-  source            = "./apps/hubot-sonny"
-  hubot_slack_token = "${var.hubot_slack_token_sonny}"
 }
 
 ## JSON Formatter
@@ -171,4 +166,15 @@ module "tiles" {
   tiles-api_mongouri      = "${var.tiles-api_mongouri}"
   tiles-api_redishost     = "${var.tiles-api_redishost}"
   tiles-api_redispassword = "${var.tiles-api_redispassword}"
+}
+
+module "rcvr" {
+  source = "./apps/rcvr"
+  providers = {
+    cloudflare = cloudflare
+  }
+  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
+  do_cluster_name    = "${var.do_cluster_name}"
+  rcvr_dbpassword    = "${var.rcvr_dbpassword}"
+  rcvr_redispassword = "${var.rcvr_redispassword}"
 }
