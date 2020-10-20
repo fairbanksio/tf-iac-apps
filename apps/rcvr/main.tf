@@ -133,7 +133,10 @@ resource "helm_release" "rcvr-api" {
   chart      = "rcvr-api"
   name       = "rcvr-api"
   namespace  = "rcvr"
-  
+  set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
   set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.rcvr-api.hostname
