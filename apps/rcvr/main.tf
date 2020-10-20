@@ -154,7 +154,7 @@ resource "helm_release" "rcvr-api" {
     type  = "string"
   }
 }
-
+ */
 resource "cloudflare_record" "rcvr-api" {
   zone_id = var.cloudflare_zone_id
   name    = "rcvr-api"
@@ -163,4 +163,3 @@ resource "cloudflare_record" "rcvr-api" {
   type    = "A"
   ttl     = 1
 }
- */
