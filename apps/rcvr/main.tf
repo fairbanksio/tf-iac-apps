@@ -166,3 +166,21 @@ resource "cloudflare_record" "rcvr-api" {
   type    = "A"
   ttl     = 1
 }
+
+resource "helm_release" "rcvr-smtp" {
+  repository = "https://h.cfcr.io/bsord/charts"
+  chart      = "rcvr-smtp"
+  name       = "rcvr-smtp"
+  namespace  = "rcvr"
+  
+}
+
+resource "cloudflare_record" "rcvr-smtp" {
+  zone_id = var.cloudflare_zone_id
+  name    = "rcvr-in"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
+}
+
