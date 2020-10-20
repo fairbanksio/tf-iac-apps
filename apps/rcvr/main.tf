@@ -115,7 +115,7 @@ resource "helm_release" "rcvr-db" {
 
 }
 
-resource "helm_release" "rcvr-relay" {
+/* resource "helm_release" "rcvr-relay" {
   repository = "https://bsord.github.io/helm-charts"
   chart      = "postfix"
   name       = "rcvr-relay"
@@ -163,3 +163,4 @@ resource "cloudflare_record" "rcvr-api" {
   type    = "A"
   ttl     = 1
 }
+ */
