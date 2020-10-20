@@ -28,7 +28,7 @@ resource "helm_release" "rcvr-web" {
   namespace  = "rcvr"
   set {
     name  = "apiHost"
-    value = "api.rcvr.io"
+    value = cloudflare_record.rcvr-api.hostname
   }
   set {
     name  = "ingress.enabled"
@@ -126,4 +126,40 @@ resource "helm_release" "rcvr-relay" {
     value = "rcvr.io"
   }
 
+}
+
+resource "helm_release" "rcvr-api" {
+  repository = "https://h.cfcr.io/bsord/charts"
+  chart      = "rcvr-api"
+  name       = "rcvr-api"
+  namespace  = "rcvr"
+  
+  set {
+    name  = "ingress.hosts[0].host"
+    value = cloudflare_record.rcvr-api.hostname
+  }
+  set {
+    name  = "ingress.hosts[0].paths[0]"
+    value = "/"
+  }
+
+  set {
+    name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/default-backend"
+    value = "pretty-default-backend"
+    type  = "string"
+  }
+  set {
+    name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/custom-http-errors"
+    value = "404\\,503\\,501"
+    type  = "string"
+  }
+}
+
+resource "cloudflare_record" "rcvr-api" {
+  zone_id = var.cloudflare_zone_id
+  name    = "rcvr-api"
+  proxied = true
+  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  type    = "A"
+  ttl     = 1
 }
