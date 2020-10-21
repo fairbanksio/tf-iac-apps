@@ -4,7 +4,7 @@ data "digitalocean_kubernetes_cluster" "k8s" {
 
 data "kubernetes_service" "nginx-ingress-controller" {
   metadata {
-    name = "nginx-ingress-controller"
+    name = "ingress-nginx-ingress-controller"
   }
 }
 
