@@ -184,3 +184,9 @@ resource "cloudflare_record" "rcvr-smtp" {
   ttl     = 1
 }
 
+resource "helm_release" "rcvr-dmarc" {
+  repository = "https://h.cfcr.io/bsord/charts"
+  chart      = "rcvr-dmarc"
+  name       = "rcvr-dmarc"
+  namespace  = "rcvr"
+}
