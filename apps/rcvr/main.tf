@@ -128,7 +128,7 @@ resource "helm_release" "rcvr-relay" {
 
   set {
     name  = "dkimKey"
-    value = "var.rcvr_dkim_key"
+    value = var.rcvr_dkim_key
   }
 }
 
