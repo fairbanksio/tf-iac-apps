@@ -126,6 +126,19 @@ resource "helm_release" "rcvr-relay" {
     value = "bsord.dev"
   }
 
+  set {
+    name  = "dkimKey"
+    value = "var.rcvr_dkim_key"
+  }
+}
+
+resource "cloudflare_record" "rcvr-dkim" {
+  zone_id = var.cloudflare_zone_id
+  name    = "mail._domainkey"
+  proxied = true
+  value   = "v=DKIM1;k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHRdd8tndhQmPuu9uUhPP91koO3yUIAtmwFO8yjt7zg8+CnNLTFL2v39teN/Dg26MfxLlDIXAKuqvKchA9pvwtDpNgc5Hh44aRJeQMzGqSzZkqpFYDSZ1AGqQ6MIeu1wE2ksKKY0i5d1xDTEWyyD4dAhovbhLXyZSgqILlCSbvMwIDAQAB"
+  type    = "TXT"
+  ttl     = 1
 }
 
 resource "helm_release" "rcvr-api" {

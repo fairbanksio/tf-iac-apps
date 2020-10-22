@@ -17,3 +17,4 @@ variable "nextcloud_mariadb_user" {}
 variable "nextcloud_mariadb_password" {}
 variable "rcvr_dbpassword" {}
 variable "rcvr_redispassword" {}
+variable "rcvr_dkim_key" {}
