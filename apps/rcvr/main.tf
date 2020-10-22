@@ -135,7 +135,7 @@ resource "helm_release" "rcvr-relay" {
 resource "cloudflare_record" "rcvr-dkim" {
   zone_id = var.cloudflare_zone_id
   name    = "mail._domainkey"
-  proxied = true
+  proxied = false
   value   = "v=DKIM1;k=rsa;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHRdd8tndhQmPuu9uUhPP91koO3yUIAtmwFO8yjt7zg8+CnNLTFL2v39teN/Dg26MfxLlDIXAKuqvKchA9pvwtDpNgc5Hh44aRJeQMzGqSzZkqpFYDSZ1AGqQ6MIeu1wE2ksKKY0i5d1xDTEWyyD4dAhovbhLXyZSgqILlCSbvMwIDAQAB"
   type    = "TXT"
   ttl     = 1
@@ -191,7 +191,7 @@ resource "helm_release" "rcvr-smtp" {
 resource "cloudflare_record" "rcvr-smtp" {
   zone_id = var.cloudflare_zone_id
   name    = "rcvr-in"
-  proxied = true
+  proxied = false
   value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
   type    = "A"
   ttl     = 1
