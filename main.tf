@@ -177,5 +177,5 @@ module "rcvr" {
   do_cluster_name    = "${var.do_cluster_name}"
   rcvr_dbpassword    = "${var.rcvr_dbpassword}"
   rcvr_redispassword = "${var.rcvr_redispassword}"
-  rcvr_dkim_key = "${var.rcvr_dkim_key}"
+  rcvr_dkim_key      = "${var.rcvr_dkim_key}"
 }
