@@ -123,7 +123,7 @@ resource "helm_release" "rcvr-relay" {
   
   set {
     name  = "allowedSenderDomains"
-    value = "rcvr.io"
+    value = "bsord.dev"
   }
 
 }
