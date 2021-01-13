@@ -9,7 +9,7 @@ terraform {
 }
 
 module "docker-node-app" {
-  source = "./apps/docker-node-app"
+  source             = "./apps/docker-node-app"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -26,7 +26,7 @@ module "docker-node-app" {
 ## F5 O'Clock
 
 module "f5oclock" {
-  source = "./apps/f5oclock"
+  source             = "./apps/f5oclock"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
   f5_mongo_uri       = var.f5_mongo_uri
@@ -35,13 +35,13 @@ module "f5oclock" {
 ## Home Page(s)
 
 module "homepage-bsord" {
-  source = "./apps/homepage-bsord"
+  source             = "./apps/homepage-bsord"
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
   do_cluster_name    = var.do_cluster_name
 }
 
 module "homepage-jonfairbanks" {
-  source = "./apps/homepage-jonfairbanks"
+  source             = "./apps/homepage-jonfairbanks"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -56,7 +56,7 @@ module "hubot-halbert" {
 ## JSON Formatter
 
 module "json-formatter" {
-  source = "./apps/json-formatter"
+  source             = "./apps/json-formatter"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -64,7 +64,7 @@ module "json-formatter" {
 ## Markdown Editor
 
 module "markdown-editor" {
-  source = "./apps/markdown-editor"
+  source             = "./apps/markdown-editor"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -72,7 +72,7 @@ module "markdown-editor" {
 ## Nextcloud
 
 module "nextcloud" {
-  source = "./apps/nextcloud"
+  source                     = "./apps/nextcloud"
   cloudflare_zone_id         = var.cloudflare_zone_id_fairbanks
   do_cluster_name            = var.do_cluster_name
   nextcloud_mariadb_host     = var.nextcloud_mariadb_host
@@ -93,7 +93,7 @@ module "nextcloud" {
 } */
 
 module "paypal-sandbox-dashboard" {
-  source = "./apps/paypal-sandbox-dashboard"
+  source             = "./apps/paypal-sandbox-dashboard"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
   ppsandbox_mongouri = var.ppsandbox_mongouri
@@ -102,19 +102,19 @@ module "paypal-sandbox-dashboard" {
 ## Status Page(s)
 
 module "statuspage-jonfairbanks" {
-  source = "./apps/statuspage-jonfairbanks"
+  source             = "./apps/statuspage-jonfairbanks"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
 }
 
 module "statuspage-bsord" {
-  source = "./apps/statuspage-bsord"
+  source             = "./apps/statuspage-bsord"
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
 }
 
 ## Tetris
 
 module "tetris" {
-  source = "./apps/tetris"
+  source             = "./apps/tetris"
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
   do_cluster_name    = var.do_cluster_name
 }
@@ -122,7 +122,7 @@ module "tetris" {
 ## Tiles
 
 module "tiles" {
-  source = "./apps/tiles"
+  source                  = "./apps/tiles"
   cloudflare_zone_id      = var.cloudflare_zone_id_bsord
   do_cluster_name         = var.do_cluster_name
   tiles-api_mongouri      = var.tiles-api_mongouri
@@ -131,7 +131,7 @@ module "tiles" {
 }
 
 module "rcvr" {
-  source = "./apps/rcvr"
+  source             = "./apps/rcvr"
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
   do_cluster_name    = var.do_cluster_name
   rcvr_dbpassword    = var.rcvr_dbpassword
