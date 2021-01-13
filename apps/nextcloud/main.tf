@@ -6,7 +6,7 @@ resource "kubernetes_namespace" "nextcloud" {
 
 resource "helm_release" "nextcloud" {
   name       = "nextcloud"
-  repository = "https://kubernetes-charts.storage.googleapis.com"
+  repository = "https://charts.helm.sh/stable"
   chart      = "nextcloud"
   namespace  = "nextcloud"
   set {
