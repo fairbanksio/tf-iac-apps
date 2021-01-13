@@ -17,8 +17,8 @@ module "docker-node-app" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
 }
 
 /* module "docker-node-app-bsord" {
@@ -26,8 +26,8 @@ module "docker-node-app" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_bsord
+  do_cluster_name    = var.do_cluster_name
 } */
 
 ## F5 O'Clock
@@ -41,9 +41,9 @@ module "f5oclock" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
-  f5_mongo_uri       = "${var.f5_mongo_uri}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
+  f5_mongo_uri       = var.f5_mongo_uri
 }
 
 ## Home Page(s)
@@ -57,8 +57,8 @@ module "homepage-bsord" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_bsord
+  do_cluster_name    = var.do_cluster_name
 }
 
 module "homepage-jonfairbanks" {
@@ -70,15 +70,15 @@ module "homepage-jonfairbanks" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
 }
 
 ## Hubot Instance(s)
 
 module "hubot-halbert" {
   source            = "./apps/hubot-halbert"
-  hubot_slack_token = "${var.hubot_slack_token_halbert}"
+  hubot_slack_token = var.hubot_slack_token_halbert
 }
 
 ## JSON Formatter
@@ -92,8 +92,8 @@ module "json-formatter" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
 }
 
 ## Markdown Editor
@@ -107,8 +107,8 @@ module "markdown-editor" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
 }
 
 ## Nextcloud
@@ -122,11 +122,11 @@ module "nextcloud" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id         = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name            = "${var.do_cluster_name}"
-  nextcloud_mariadb_host     = "${var.nextcloud_mariadb_host}"
-  nextcloud_mariadb_user     = "${var.nextcloud_mariadb_user}"
-  nextcloud_mariadb_password = "${var.nextcloud_mariadb_password}"
+  cloudflare_zone_id         = var.cloudflare_zone_id_fairbanks
+  do_cluster_name            = var.do_cluster_name
+  nextcloud_mariadb_host     = var.nextcloud_mariadb_host
+  nextcloud_mariadb_user     = var.nextcloud_mariadb_user
+  nextcloud_mariadb_password = var.nextcloud_mariadb_password
 }
 
 ## PayPal
@@ -136,9 +136,9 @@ module "nextcloud" {
   providers = {
     cloudflare = cloudflare
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
-  ppipn_mongouri = "${var.ppipn_mongouri}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
+  ppipn_mongouri = var.ppipn_mongouri
 } */
 
 module "paypal-sandbox-dashboard" {
@@ -150,9 +150,9 @@ module "paypal-sandbox-dashboard" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
-  do_cluster_name    = "${var.do_cluster_name}"
-  ppsandbox_mongouri = "${var.ppsandbox_mongouri}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
+  ppsandbox_mongouri = var.ppsandbox_mongouri
 }
 
 ## Status Page(s)
@@ -166,7 +166,7 @@ module "statuspage-jonfairbanks" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
 }
 
 module "statuspage-bsord" {
@@ -178,7 +178,7 @@ module "statuspage-bsord" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
+  cloudflare_zone_id = var.cloudflare_zone_id_bsord
 }
 
 ## Tetris
@@ -192,8 +192,8 @@ module "tetris" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
-  do_cluster_name    = "${var.do_cluster_name}"
+  cloudflare_zone_id = var.cloudflare_zone_id_bsord
+  do_cluster_name    = var.do_cluster_name
 }
 
 ## Tiles
@@ -207,11 +207,11 @@ module "tiles" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id      = "${var.cloudflare_zone_id_bsord}"
-  do_cluster_name         = "${var.do_cluster_name}"
-  tiles-api_mongouri      = "${var.tiles-api_mongouri}"
-  tiles-api_redishost     = "${var.tiles-api_redishost}"
-  tiles-api_redispassword = "${var.tiles-api_redispassword}"
+  cloudflare_zone_id      = var.cloudflare_zone_id_bsord
+  do_cluster_name         = var.do_cluster_name
+  tiles-api_mongouri      = var.tiles-api_mongouri
+  tiles-api_redishost     = var.tiles-api_redishost
+  tiles-api_redispassword = var.tiles-api_redispassword
 }
 
 module "rcvr" {
@@ -223,9 +223,9 @@ module "rcvr" {
       version = "~> 2.11.0"
     }
   }
-  cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
-  do_cluster_name    = "${var.do_cluster_name}"
-  rcvr_dbpassword    = "${var.rcvr_dbpassword}"
-  rcvr_redispassword = "${var.rcvr_redispassword}"
-  rcvr_dkim_key      = "${var.rcvr_dkim_key}"
+  cloudflare_zone_id = var.cloudflare_zone_id_bsord
+  do_cluster_name    = var.do_cluster_name
+  rcvr_dbpassword    = var.rcvr_dbpassword
+  rcvr_redispassword = var.rcvr_redispassword
+  rcvr_dkim_key      = var.rcvr_dkim_key
 }
