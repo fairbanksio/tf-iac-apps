@@ -8,12 +8,14 @@ terraform {
   }
 }
 
-## docker-node-app
-
 module "docker-node-app" {
   source = "./apps/docker-node-app"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -32,8 +34,12 @@ module "docker-node-app" {
 
 module "f5oclock" {
   source = "./apps/f5oclock"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -44,8 +50,12 @@ module "f5oclock" {
 
 module "homepage-bsord" {
   source = "./apps/homepage-bsord"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -53,8 +63,12 @@ module "homepage-bsord" {
 
 module "homepage-jonfairbanks" {
   source = "./apps/homepage-jonfairbanks"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -71,8 +85,12 @@ module "hubot-halbert" {
 
 module "json-formatter" {
   source = "./apps/json-formatter"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -82,8 +100,12 @@ module "json-formatter" {
 
 module "markdown-editor" {
   source = "./apps/markdown-editor"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -93,8 +115,12 @@ module "markdown-editor" {
 
 module "nextcloud" {
   source = "./apps/nextcloud"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id         = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name            = "${var.do_cluster_name}"
@@ -117,8 +143,12 @@ module "nextcloud" {
 
 module "paypal-sandbox-dashboard" {
   source = "./apps/paypal-sandbox-dashboard"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -129,16 +159,24 @@ module "paypal-sandbox-dashboard" {
 
 module "statuspage-jonfairbanks" {
   source = "./apps/statuspage-jonfairbanks"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_fairbanks}"
 }
 
 module "statuspage-bsord" {
   source = "./apps/statuspage-bsord"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
 }
@@ -147,8 +185,12 @@ module "statuspage-bsord" {
 
 module "tetris" {
   source = "./apps/tetris"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
@@ -158,8 +200,12 @@ module "tetris" {
 
 module "tiles" {
   source = "./apps/tiles"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id      = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name         = "${var.do_cluster_name}"
@@ -170,8 +216,12 @@ module "tiles" {
 
 module "rcvr" {
   source = "./apps/rcvr"
-  providers = {
-    cloudflare = cloudflare
+  required_providers {
+    cloudflare = {
+      # Source is required for providers in other namespaces, to avoid ambiguity.
+      source  = "cloudflare/cloudflare"
+      version = "~> 2.11.0"
+    }
   }
   cloudflare_zone_id = "${var.cloudflare_zone_id_bsord}"
   do_cluster_name    = "${var.do_cluster_name}"
