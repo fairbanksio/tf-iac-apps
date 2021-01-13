@@ -10,13 +10,6 @@ terraform {
 
 module "docker-node-app" {
   source = "./apps/docker-node-app"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -34,13 +27,6 @@ module "docker-node-app" {
 
 module "f5oclock" {
   source = "./apps/f5oclock"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
   f5_mongo_uri       = var.f5_mongo_uri
@@ -50,26 +36,12 @@ module "f5oclock" {
 
 module "homepage-bsord" {
   source = "./apps/homepage-bsord"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
   do_cluster_name    = var.do_cluster_name
 }
 
 module "homepage-jonfairbanks" {
   source = "./apps/homepage-jonfairbanks"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -85,13 +57,6 @@ module "hubot-halbert" {
 
 module "json-formatter" {
   source = "./apps/json-formatter"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -100,13 +65,6 @@ module "json-formatter" {
 
 module "markdown-editor" {
   source = "./apps/markdown-editor"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
 }
@@ -115,13 +73,6 @@ module "markdown-editor" {
 
 module "nextcloud" {
   source = "./apps/nextcloud"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id         = var.cloudflare_zone_id_fairbanks
   do_cluster_name            = var.do_cluster_name
   nextcloud_mariadb_host     = var.nextcloud_mariadb_host
@@ -143,13 +94,6 @@ module "nextcloud" {
 
 module "paypal-sandbox-dashboard" {
   source = "./apps/paypal-sandbox-dashboard"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
   do_cluster_name    = var.do_cluster_name
   ppsandbox_mongouri = var.ppsandbox_mongouri
@@ -159,25 +103,11 @@ module "paypal-sandbox-dashboard" {
 
 module "statuspage-jonfairbanks" {
   source = "./apps/statuspage-jonfairbanks"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
 }
 
 module "statuspage-bsord" {
   source = "./apps/statuspage-bsord"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
 }
 
@@ -185,13 +115,6 @@ module "statuspage-bsord" {
 
 module "tetris" {
   source = "./apps/tetris"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
   do_cluster_name    = var.do_cluster_name
 }
@@ -200,13 +123,6 @@ module "tetris" {
 
 module "tiles" {
   source = "./apps/tiles"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id      = var.cloudflare_zone_id_bsord
   do_cluster_name         = var.do_cluster_name
   tiles-api_mongouri      = var.tiles-api_mongouri
@@ -216,13 +132,6 @@ module "tiles" {
 
 module "rcvr" {
   source = "./apps/rcvr"
-  required_providers {
-    cloudflare = {
-      # Source is required for providers in other namespaces, to avoid ambiguity.
-      source  = "cloudflare/cloudflare"
-      version = "~> 2.11.0"
-    }
-  }
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
   do_cluster_name    = var.do_cluster_name
   rcvr_dbpassword    = var.rcvr_dbpassword
