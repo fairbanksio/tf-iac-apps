@@ -10,6 +10,10 @@ resource "helm_release" "tetris_pretty-default-backend" {
   chart      = "pretty-default-backend"
   namespace  = "tetris"
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
     name  = "bgColor"
     value = "#202025"
   }
@@ -24,6 +28,10 @@ resource "helm_release" "tetris" {
   chart      = "tetris"
   name       = "tetris"
   namespace  = "tetris"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set {
     name  = "ingress.enabled"
     value = "true"
