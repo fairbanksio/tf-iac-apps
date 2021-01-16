@@ -14,6 +14,10 @@ resource "helm_release" "bsord-homepage" {
     value = "true"
   }
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.bsord-homepage.hostname
   }
