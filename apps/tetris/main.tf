@@ -6,7 +6,7 @@ resource "kubernetes_namespace" "tetris" {
 
 resource "helm_release" "tetris_pretty-default-backend" {
   name       = "pretty-default-backend"
-  repository = "https://h.cfcr.io/fairbanks.io/default"
+  repository = "https://h.cfcr.io/bsord/charts"
   chart      = "pretty-default-backend"
   namespace  = "tetris"
   set {
