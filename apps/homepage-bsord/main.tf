@@ -10,6 +10,10 @@ resource "helm_release" "bsord-homepage" {
   name       = "bsord-homepage"
   namespace  = "bsord"
   set {
+    name  = "ingress.enabled"
+    value = "true"
+  }
+  set {
     name  = "autoscaling.enabled"
     value = true
   }
