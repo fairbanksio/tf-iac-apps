@@ -197,7 +197,10 @@ resource "helm_release" "rcvr-smtp" {
   chart      = "rcvr-smtp"
   name       = "rcvr-smtp"
   namespace  = "rcvr"
-  
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
 }
 
 resource "cloudflare_record" "rcvr-smtp" {
