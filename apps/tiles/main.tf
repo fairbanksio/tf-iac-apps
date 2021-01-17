@@ -8,7 +8,7 @@ resource "kubernetes_namespace" "tiles" {
 
 resource "helm_release" "tiles-api_pretty-default-backend" {
   name       = "pretty-default-backend"
-  repository = "https://h.cfcr.io/fairbanks.io/default"
+  repository = "https://bsord.github.io/helm-charts"
   chart      = "pretty-default-backend"
   namespace  = "bsord-tiles"
   set {
@@ -26,6 +26,10 @@ resource "helm_release" "tiles-client" {
   chart      = "tiles-client"
   name       = "tiles-client"
   namespace  = "bsord-tiles"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set {
     name  = "apiHost"
     value = cloudflare_record.tiles-api.hostname
@@ -71,6 +75,10 @@ resource "helm_release" "tiles-api" {
   chart      = "tiles-api"
   name       = "tiles-api"
   namespace  = "bsord-tiles"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set_sensitive {
     name  = "mongoURI"
     value = var.tiles-api_mongouri
