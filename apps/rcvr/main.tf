@@ -128,7 +128,10 @@ resource "helm_release" "rcvr-relay" {
   chart      = "postfix"
   name       = "rcvr-relay"
   namespace  = "rcvr"
-  
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set {
     name  = "allowedSenderDomains"
     value = "bsord.dev"
