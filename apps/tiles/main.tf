@@ -8,7 +8,7 @@ resource "kubernetes_namespace" "tiles" {
 
 resource "helm_release" "tiles-api_pretty-default-backend" {
   name       = "pretty-default-backend"
-  repository = "https://bsord.github.io/helm-charts"
+  repository = "https://h.cfcr.io/bsord/charts"
   chart      = "pretty-default-backend"
   namespace  = "bsord-tiles"
   set {
@@ -22,7 +22,7 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
 }
 
 resource "helm_release" "tiles-client" {
-  repository = "https://bsord.github.io/helm-charts"
+  repository = "https://h.cfcr.io/bsord/charts"
   chart      = "tiles-client"
   name       = "tiles-client"
   namespace  = "bsord-tiles"
@@ -71,7 +71,7 @@ resource "cloudflare_record" "tiles-client" {
 ## Tiles-API
 
 resource "helm_release" "tiles-api" {
-  repository = "https://bsord.github.io/helm-charts"
+  repository = "https://h.cfcr.io/bsord/charts"
   chart      = "tiles-api"
   name       = "tiles-api"
   namespace  = "bsord-tiles"
