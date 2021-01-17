@@ -214,4 +214,8 @@ resource "helm_release" "rcvr-dmarc" {
   chart      = "rcvr-dmarc"
   name       = "rcvr-dmarc"
   namespace  = "rcvr"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
 }
