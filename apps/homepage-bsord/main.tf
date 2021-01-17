@@ -5,7 +5,7 @@ resource "kubernetes_namespace" "bsord" {
 }
 
 resource "helm_release" "bsord-homepage" {
-  repository = "https://h.cfcr.io/fairbanks.io/default"
+  repository = "https://bsord.github.io/helm-charts"
   chart      = "bsord-homepage"
   name       = "bsord-homepage"
   namespace  = "bsord"
