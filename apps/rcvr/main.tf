@@ -27,6 +27,10 @@ resource "helm_release" "rcvr-web" {
   name       = "rcvr-web"
   namespace  = "rcvr"
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
     name  = "apiHost"
     value = cloudflare_record.rcvr-api.hostname
   }
