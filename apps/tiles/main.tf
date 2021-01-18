@@ -12,6 +12,10 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
   chart      = "pretty-default-backend"
   namespace  = "bsord-tiles"
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
     name  = "bgColor"
     value = "#202025"
   }
