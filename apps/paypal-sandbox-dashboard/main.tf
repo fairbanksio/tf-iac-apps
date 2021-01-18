@@ -9,6 +9,10 @@ resource "helm_release" "paypal-sandbox-dashboard" {
   chart      = "paypal-sandbox-dashboard"
   name       = "paypal-sandbox-dashboard"
   namespace  = "paypal-sandbox-dashboard"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set_sensitive {
     name  = "mongoURI"
     value = var.ppsandbox_mongouri
