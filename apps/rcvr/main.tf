@@ -100,27 +100,34 @@ resource "helm_release" "rcvr-db" {
   chart      = "mariadb"
   name       = "rcvr-db"
   namespace  = "rcvr"
+  set {
+    name  = "auth.username"
+    value = "rcvr"
+  }
   set_sensitive {
     name  = "auth.password"
     value = var.rcvr_dbpassword
   }
   set {
-    name  = "auth.username"
-    value = "rcvr"
-  }
-  set {
     name  = "auth.database"
     value = "rcvr"
   }
-  set {
-    name  = "primary.persistence.enabled"
-    value = false
+  set_sensitive {
+    name  = "architecture"
+    value = "replication"
   }
   set {
-    name  = "secondary.persistence.enabled"
-    value = false
+    name  = "secondary.persistence.size"
+    value = "5Gi"
   }
-
+  set {
+    name  = "secondary.replicaCount"
+    value = 1
+  }
+  set {
+    name  = "metrics.enabled"
+    value = true
+  }
 }
 
 resource "helm_release" "rcvr-relay" {
@@ -136,7 +143,6 @@ resource "helm_release" "rcvr-relay" {
     name  = "allowedSenderDomains"
     value = "bsord.dev"
   }
-
   set {
     name  = "dkimKey"
     value = var.rcvr_dkim_key
@@ -173,7 +179,6 @@ resource "helm_release" "rcvr-api" {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
-
   set {
     name  = "ingress.annotations.nginx\\.ingress\\.kubernetes\\.io/default-backend"
     value = "pretty-default-backend"
