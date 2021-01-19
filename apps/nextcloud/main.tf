@@ -1,3 +1,4 @@
+/*
 resource "kubernetes_namespace" "nextcloud" {
   metadata {
     name = "nextcloud"
@@ -59,3 +60,5 @@ resource "cloudflare_record" "files" {
   type    = "A"
   ttl     = 1
 }
+
+*/
