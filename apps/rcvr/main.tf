@@ -82,16 +82,20 @@ resource "helm_release" "rcvr-session-cache" {
     value = var.rcvr_redispassword
   }
   set {
-    name  = "master.persistence.enabled"
-    value = false
+    name  = "master.persistence.size"
+    value = "2Gi"
   }
   set {
-    name  = "slave.persistence.enabled"
-    value = false
+    name  = "slave.persistence.size"
+    value = "2Gi"
   }
   set {
     name  = "cluster.slaveCount"
     value = 1
+  }
+  set {
+    name  = "metrics.enabled"
+    value = true
   }
 }
 
