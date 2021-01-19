@@ -117,6 +117,26 @@ resource "helm_release" "rcvr-db" {
     value = "replication"
   }
   set {
+    name  = "primary.pdb.enabled"
+    value = true
+  }
+  set {
+    name  = "primary.pdb.minAvailable"
+    value = 1
+  }
+  set {
+    name  = "secondary.pdb.enabled"
+    value = true
+  }
+  set {
+    name  = "secondary.pdb.minAvailable"
+    value = 1
+  }
+  set {
+    name  = "primary.persistence.size"
+    value = "5Gi"
+  }
+  set {
     name  = "secondary.persistence.size"
     value = "5Gi"
   }
