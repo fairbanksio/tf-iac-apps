@@ -187,8 +187,6 @@ resource "helm_release" "rcvr-api" {
   chart      = "rcvr-api"
   name       = "rcvr-api"
   namespace  = "rcvr"
-  force_update = true
-  atomic = true
   set {
     name  = "autoscaling.enabled"
     value = true
@@ -235,6 +233,11 @@ resource "helm_release" "rcvr-smtp" {
     name  = "autoscaling.enabled"
     value = true
   }
+  set {
+    name  = "dbHost"
+    value = "rcvr-db-mariadb-primary"
+  }
+  
 }
 
 resource "cloudflare_record" "rcvr-smtp" {
