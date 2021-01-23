@@ -67,7 +67,7 @@ resource "cloudflare_record" "rcvr-web" {
   zone_id = var.cloudflare_zone_id
   name    = "rcvr"
   proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }
@@ -187,6 +187,8 @@ resource "helm_release" "rcvr-api" {
   chart      = "rcvr-api"
   name       = "rcvr-api"
   namespace  = "rcvr"
+  force_update = true
+  atomic = true
   set {
     name  = "autoscaling.enabled"
     value = true
@@ -219,7 +221,7 @@ resource "cloudflare_record" "rcvr-api" {
   zone_id = var.cloudflare_zone_id
   name    = "rcvr-api"
   proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }
@@ -239,7 +241,7 @@ resource "cloudflare_record" "rcvr-smtp" {
   zone_id = var.cloudflare_zone_id
   name    = "rcvr-in"
   proxied = false
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }

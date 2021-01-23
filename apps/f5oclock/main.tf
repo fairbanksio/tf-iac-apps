@@ -50,7 +50,7 @@ resource "cloudflare_record" "f5-web" {
   zone_id = var.cloudflare_zone_id
   name    = "f5"
   proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }
