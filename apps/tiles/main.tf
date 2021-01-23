@@ -67,7 +67,7 @@ resource "cloudflare_record" "tiles-client" {
   zone_id = var.cloudflare_zone_id
   name    = "tiles"
   proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }
@@ -124,7 +124,7 @@ resource "cloudflare_record" "tiles-api" {
   zone_id = var.cloudflare_zone_id
   name    = "tiles-api"
   proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }

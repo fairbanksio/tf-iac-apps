@@ -31,7 +31,7 @@ resource "cloudflare_record" "kube" {
   zone_id = var.cloudflare_zone_id
   name    = "kube"
   proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.load_balancer_ingress.0.ip
+  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
   type    = "A"
   ttl     = 1
 }
