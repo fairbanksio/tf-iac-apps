@@ -235,6 +235,11 @@ resource "helm_release" "rcvr-smtp" {
     name  = "autoscaling.enabled"
     value = true
   }
+  set {
+    name  = "dbHost"
+    value = "rcvr-db-mariadb-primary"
+  }
+  
 }
 
 resource "cloudflare_record" "rcvr-smtp" {
