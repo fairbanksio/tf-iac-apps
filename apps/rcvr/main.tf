@@ -187,6 +187,8 @@ resource "helm_release" "rcvr-api" {
   chart      = "rcvr-api"
   name       = "rcvr-api"
   namespace  = "rcvr"
+  force_update = true
+  atomic = true
   set {
     name  = "autoscaling.enabled"
     value = true
