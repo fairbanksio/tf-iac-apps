@@ -9,6 +9,11 @@ resource "helm_release" "json-formatter" {
   chart      = "json-formatter"
   name       = "json-formatter"
   namespace  = "json-formatter"
+  version = "1.1.0"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set {
     name  = "ingress.enabled"
     value = "true"

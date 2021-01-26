@@ -9,6 +9,11 @@ resource "helm_release" "jonfairbanks-homepage" {
   chart      = "jonfairbanks-homepage"
   name       = "jonfairbanks-homepage"
   namespace  = "jonfairbanks"
+  version = "1.1.0"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set {
     name  = "ingress.enabled"
     value = "true"
