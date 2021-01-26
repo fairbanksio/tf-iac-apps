@@ -9,6 +9,7 @@ resource "helm_release" "docker-node-app" {
   chart      = "docker-node-app"
   name       = "docker-node-app"
   namespace  = "docker-node-app"
+  version = "1.1.0"
   set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.kube.hostname
