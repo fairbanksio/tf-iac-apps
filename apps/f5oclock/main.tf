@@ -9,6 +9,11 @@ resource "helm_release" "f5-api" {
   chart      = "f5-api"
   name       = "f5-api"
   namespace  = "f5oclock"
+  version = "1.1.0"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set_sensitive {
     name  = "MONGO_URI"
     value = var.f5_mongo_uri
@@ -24,6 +29,11 @@ resource "helm_release" "f5-web" {
   chart      = "f5-web"
   name       = "f5-web"
   namespace  = "f5oclock"
+  version = "1.1.0"
+  set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
   set {
     name  = "ingress.enabled"
     value = "true"
