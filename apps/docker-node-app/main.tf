@@ -11,6 +11,10 @@ resource "helm_release" "docker-node-app" {
   namespace  = "docker-node-app"
   version = "1.1.0"
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.kube.hostname
   }
