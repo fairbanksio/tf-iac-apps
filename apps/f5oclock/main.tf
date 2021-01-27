@@ -11,6 +11,10 @@ resource "helm_release" "f5-api" {
   namespace  = "f5oclock"
   version = "1.1.0"
   set {
+    name  = "f5.secretName"
+    value = "f5-mongouri"
+  }
+  set {
     name  = "autoscaling.enabled"
     value = true
   }
