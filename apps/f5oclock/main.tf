@@ -29,7 +29,7 @@ resource "helm_release" "f5-web" {
   chart      = "f5-web"
   name       = "f5-web"
   namespace  = "f5oclock"
-  version = "1.1.0"
+  version = "1.1.1"
   set {
     name  = "autoscaling.enabled"
     value = true
