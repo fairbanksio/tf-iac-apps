@@ -35,6 +35,10 @@ resource "helm_release" "f5-web" {
     value = true
   }
   set {
+    name  = "f5.secretName"
+    value = "f5-mongouri"
+  }
+  set {
     name  = "ingress.enabled"
     value = "true"
   }
