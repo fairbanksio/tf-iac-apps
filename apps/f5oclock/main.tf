@@ -14,6 +14,10 @@ resource "helm_release" "f5-api" {
     name  = "f5.secretName"
     value = "f5-mongouri"
   }
+  set_sensitive {
+    name  = "f5.mongoUri"
+    value = var.f5_mongo_uri
+  }
   set {
     name  = "autoscaling.enabled"
     value = true
@@ -41,6 +45,10 @@ resource "helm_release" "f5-web" {
   set {
     name  = "f5.secretName"
     value = "f5-mongouri"
+  }
+  set_sensitive {
+    name  = "f5.mongoUri"
+    value = var.f5_mongo_uri
   }
   set {
     name  = "ingress.enabled"
