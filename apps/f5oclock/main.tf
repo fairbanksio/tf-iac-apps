@@ -9,7 +9,7 @@ resource "helm_release" "f5-api" {
   chart      = "f5-api"
   name       = "f5-api"
   namespace  = "f5oclock"
-  version = "1.1.0"
+  version = "1.2.0"
   set {
     name  = "f5.secretName"
     value = "f5-mongouri"
@@ -28,7 +28,7 @@ resource "helm_release" "f5-api" {
   }
   set {
     name  = "image.tag"
-    value = "1.0.0"
+    value = "1.0.1"
   }
 }
 
