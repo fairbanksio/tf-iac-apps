@@ -9,6 +9,7 @@ resource "helm_release" "bsord-homepage" {
   chart      = "bsord-homepage"
   name       = "bsord-homepage"
   namespace  = "bsord"
+  version = "0.4.0"
   set {
     name  = "ingress.enabled"
     value = "true"
