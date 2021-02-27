@@ -16,7 +16,7 @@ resource "helm_release" "paypal-sandbox-dashboard" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
   }
   set_sensitive {
     name  = "mongoURI"
