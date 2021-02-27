@@ -18,7 +18,7 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
   }
   set {
     name  = "bgColor"

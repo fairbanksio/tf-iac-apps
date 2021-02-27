@@ -16,7 +16,7 @@ resource "helm_release" "tetris_pretty-default-backend" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
   }
   set {
     name  = "bgColor"
@@ -39,7 +39,7 @@ resource "helm_release" "tetris" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
   }
   set {
     name  = "ingress.enabled"
