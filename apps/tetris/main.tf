@@ -33,6 +33,10 @@ resource "helm_release" "tetris" {
     value = true
   }
   set {
+    name  = "autoscaling.minreplicas"
+    value = 1
+  }
+  set {
     name  = "ingress.enabled"
     value = "true"
   }
