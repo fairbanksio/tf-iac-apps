@@ -14,6 +14,10 @@ resource "helm_release" "tetris_pretty-default-backend" {
     value = true
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 1
+  }
+  set {
     name  = "bgColor"
     value = "#202025"
   }
