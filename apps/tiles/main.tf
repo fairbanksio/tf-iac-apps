@@ -35,6 +35,10 @@ resource "helm_release" "tiles-client" {
     value = true
   }
   set {
+    name  = "autoscaling.minreplicas"
+    value = 1
+  }
+  set {
     name  = "apiHost"
     value = cloudflare_record.tiles-api.hostname
   }
@@ -82,6 +86,10 @@ resource "helm_release" "tiles-api" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minreplicas"
+    value = 1
   }
   set_sensitive {
     name  = "mongoURI"

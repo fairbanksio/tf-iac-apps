@@ -14,6 +14,10 @@ resource "helm_release" "paypal-sandbox-dashboard" {
     name  = "autoscaling.enabled"
     value = true
   }
+  set {
+    name  = "autoscaling.minreplicas"
+    value = 1
+  }
   set_sensitive {
     name  = "mongoURI"
     value = var.ppsandbox_mongouri

@@ -35,6 +35,10 @@ resource "helm_release" "rcvr-web" {
     value = true
   }
   set {
+    name  = "autoscaling.minreplicas"
+    value = 1
+  }
+  set {
     name  = "apiHost"
     value = cloudflare_record.rcvr-api.hostname
   }
@@ -164,6 +168,10 @@ resource "helm_release" "rcvr-relay" {
     value = true
   }
   set {
+    name  = "autoscaling.minreplicas"
+    value = 1
+  }
+  set {
     name  = "allowedSenderDomains"
     value = "bsord.dev"
   }
@@ -190,6 +198,10 @@ resource "helm_release" "rcvr-api" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minreplicas"
+    value = 1
   }
   set {
     name  = "ingress.enabled"
@@ -232,6 +244,10 @@ resource "helm_release" "rcvr-smtp" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minreplicas"
+    value = 1
   }
   set {
     name  = "dbHost"
