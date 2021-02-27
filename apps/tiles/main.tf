@@ -16,6 +16,10 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
     value = true
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 1
+  }
+  set {
     name  = "bgColor"
     value = "#202025"
   }
