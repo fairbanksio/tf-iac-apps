@@ -15,6 +15,10 @@ resource "helm_release" "json-formatter" {
     value = true
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 1
+  }
+  set {
     name  = "ingress.enabled"
     value = "true"
   }

@@ -35,7 +35,7 @@ resource "helm_release" "tiles-client" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set {
@@ -88,7 +88,7 @@ resource "helm_release" "tiles-api" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set_sensitive {

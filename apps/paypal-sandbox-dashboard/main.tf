@@ -15,7 +15,7 @@ resource "helm_release" "paypal-sandbox-dashboard" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set_sensitive {

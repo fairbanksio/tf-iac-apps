@@ -35,7 +35,7 @@ resource "helm_release" "rcvr-web" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set {
@@ -168,7 +168,7 @@ resource "helm_release" "rcvr-relay" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set {
@@ -200,7 +200,7 @@ resource "helm_release" "rcvr-api" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set {
@@ -246,7 +246,7 @@ resource "helm_release" "rcvr-smtp" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set {
