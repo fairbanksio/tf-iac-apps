@@ -9,6 +9,7 @@ resource "helm_release" "paypal-sandbox-dashboard" {
   chart      = "paypal-sandbox-dashboard"
   name       = "paypal-sandbox-dashboard"
   namespace  = "paypal-sandbox-dashboard"
+  version = "0.3.0"
   set {
     name  = "autoscaling.enabled"
     value = true
