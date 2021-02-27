@@ -19,7 +19,7 @@ resource "helm_release" "bsord-homepage" {
     value = true
   }
   set {
-    name  = "autoscaling.minreplicas"
+    name  = "autoscaling.minReplicas"
     value = 1
   }
   set {
