@@ -20,7 +20,7 @@ resource "helm_release" "bsord-homepage" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
   }
   set {
     name  = "ingress.hosts[0].host"

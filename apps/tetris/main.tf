@@ -9,6 +9,7 @@ resource "helm_release" "tetris_pretty-default-backend" {
   repository = "https://h.cfcr.io/bsord/charts"
   chart      = "pretty-default-backend"
   namespace  = "tetris"
+  version = "0.4.0"
   set {
     name  = "autoscaling.enabled"
     value = true

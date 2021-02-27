@@ -11,6 +11,7 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
   repository = "https://h.cfcr.io/bsord/charts"
   chart      = "pretty-default-backend"
   namespace  = "bsord-tiles"
+  version = "0.4.0"
   set {
     name  = "autoscaling.enabled"
     value = true
