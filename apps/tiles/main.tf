@@ -41,7 +41,7 @@ resource "helm_release" "tiles-client" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
   }
   set {
     name  = "apiHost"
