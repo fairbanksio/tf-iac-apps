@@ -44,7 +44,7 @@ resource "helm_release" "tiles-client" {
     value = 2
   }
   set {
-    name  = "autoscaling.minReplicas"
+    name  = "autoscaling.maxReplicas"
     value = 3
   }
   set {
