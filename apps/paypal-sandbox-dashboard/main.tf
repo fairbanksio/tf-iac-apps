@@ -18,6 +18,14 @@ resource "helm_release" "paypal-sandbox-dashboard" {
     name  = "autoscaling.minReplicas"
     value = 2
   }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
+  }
   set_sensitive {
     name  = "mongoURI"
     value = var.ppsandbox_mongouri

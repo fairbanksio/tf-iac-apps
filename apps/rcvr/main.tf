@@ -212,6 +212,14 @@ resource "helm_release" "rcvr-api" {
     value = 2
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
+  }
+  set {
     name  = "ingress.enabled"
     value = "true"
   }
