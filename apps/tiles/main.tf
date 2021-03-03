@@ -104,6 +104,14 @@ resource "helm_release" "tiles-api" {
     name  = "autoscaling.minReplicas"
     value = 1
   }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
+  }
   set_sensitive {
     name  = "mongoURI"
     value = var.tiles-api_mongouri
