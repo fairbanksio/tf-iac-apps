@@ -212,7 +212,7 @@ resource "helm_release" "rcvr-api" {
     value = 2
   }
   set {
-    name  = "autoscaling.minReplicas"
+    name  = "autoscaling.maxReplicas"
     value = 3
   }
   set {

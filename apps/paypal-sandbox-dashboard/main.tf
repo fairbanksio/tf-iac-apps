@@ -19,7 +19,7 @@ resource "helm_release" "paypal-sandbox-dashboard" {
     value = 2
   }
   set {
-    name  = "autoscaling.minReplicas"
+    name  = "autoscaling.maxReplicas"
     value = 3
   }
   set {
