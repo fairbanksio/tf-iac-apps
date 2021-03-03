@@ -44,6 +44,14 @@ resource "helm_release" "tiles-client" {
     value = 2
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
+  }
+  set {
     name  = "apiHost"
     value = cloudflare_record.tiles-api.hostname
   }
