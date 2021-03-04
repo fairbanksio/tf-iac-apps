@@ -16,7 +16,11 @@ resource "helm_release" "docker-node-app" {
   }
   set {
     name  = "autoscaling.minReplicas"
-    value = 1
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
   }
   set {
     name  = "ingress.hosts[0].host"

@@ -42,6 +42,14 @@ resource "helm_release" "tetris" {
     value = 2
   }
   set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
+  }
+  set {
     name  = "ingress.enabled"
     value = "true"
   }
