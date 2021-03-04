@@ -44,7 +44,7 @@ resource "helm_release" "mealie" {
   }
 }
 
-resource "cloudflare_record" "food" {
+resource "cloudflare_record" "mealie" {
   zone_id = var.cloudflare_zone_id
   name    = "food"
   proxied = true
