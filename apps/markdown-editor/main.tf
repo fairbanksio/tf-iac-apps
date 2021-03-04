@@ -9,7 +9,7 @@ resource "helm_release" "markdown-editor" {
   chart      = "markdown-editor"
   name       = "markdown-editor"
   namespace  = "markdown-editor"
-  version = "1.1.0"
+  version = "1.2.0"
   set {
     name  = "autoscaling.enabled"
     value = true
