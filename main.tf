@@ -130,6 +130,8 @@ module "tiles" {
   tiles-api_redispassword = var.tiles-api_redispassword
 }
 
+## Rcvr
+
 module "rcvr" {
   source             = "./apps/rcvr"
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
@@ -137,4 +139,12 @@ module "rcvr" {
   rcvr_dbpassword    = var.rcvr_dbpassword
   rcvr_redispassword = var.rcvr_redispassword
   rcvr_dkim_key      = var.rcvr_dkim_key
+}
+
+## Mealie
+
+module "mealie" {
+  source             = "./apps/mealie"
+  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
+  do_cluster_name    = var.do_cluster_name
 }
