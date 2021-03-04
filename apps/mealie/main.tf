@@ -28,7 +28,7 @@ resource "helm_release" "mealie" {
   }
   set {
     name  = "ingress.hosts[0].host"
-    value = cloudflare_record.kube.hostname
+    value = cloudflare_record.mealie.hostname
   }
   set {
     name  = "ingress.hosts[0].paths[0]"
