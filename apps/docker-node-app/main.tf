@@ -11,7 +11,7 @@ resource "helm_release" "docker-node-app" {
   namespace  = "docker-node-app"
   version = "1.1.0"
   set {
-    name  = "replicaCount"
+    name  = "minAvailable"
     value = 1
   }
   set {
