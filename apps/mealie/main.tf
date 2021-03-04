@@ -40,7 +40,7 @@ resource "helm_release" "mealie" {
   }
   set {
     name  = "image.tag"
-    value = "0.3.0"
+    value = "v0.3.0"
   }
 }
 
