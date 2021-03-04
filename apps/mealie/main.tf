@@ -9,7 +9,7 @@ resource "helm_release" "mealie" {
   chart      = "mealie"
   name       = "mealie"
   namespace  = "mealie"
-  version = "1.0.2"
+  version = "1.0.3"
   set {
     name  = "minAvailable"
     value = 1
