@@ -9,6 +9,7 @@ resource "helm_release" "bsord-homepage" {
   chart      = "bsord-homepage"
   name       = "bsord-homepage"
   namespace  = "bsord"
+  version = "0.4.0"
   set {
     name  = "ingress.enabled"
     value = "true"
@@ -16,6 +17,18 @@ resource "helm_release" "bsord-homepage" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
   }
   set {
     name  = "ingress.hosts[0].host"

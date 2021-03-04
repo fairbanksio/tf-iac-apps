@@ -9,9 +9,22 @@ resource "helm_release" "paypal-sandbox-dashboard" {
   chart      = "paypal-sandbox-dashboard"
   name       = "paypal-sandbox-dashboard"
   namespace  = "paypal-sandbox-dashboard"
+  version = "0.3.0"
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
   }
   set_sensitive {
     name  = "mongoURI"

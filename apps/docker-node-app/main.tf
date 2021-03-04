@@ -15,6 +15,14 @@ resource "helm_release" "docker-node-app" {
     value = true
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.kube.hostname
   }

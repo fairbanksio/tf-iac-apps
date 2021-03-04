@@ -15,6 +15,18 @@ resource "helm_release" "markdown-editor" {
     value = true
   }
   set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
+  }
+  set {
     name  = "ingress.enabled"
     value = "true"
   }

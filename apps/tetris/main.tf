@@ -9,9 +9,14 @@ resource "helm_release" "tetris_pretty-default-backend" {
   repository = "https://h.cfcr.io/bsord/charts"
   chart      = "pretty-default-backend"
   namespace  = "tetris"
+  version = "0.4.0"
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
   }
   set {
     name  = "bgColor"
@@ -31,6 +36,18 @@ resource "helm_release" "tetris" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
   }
   set {
     name  = "ingress.enabled"

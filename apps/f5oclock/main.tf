@@ -11,6 +11,22 @@ resource "helm_release" "f5-api" {
   namespace  = "f5oclock"
   version = "1.2.0"
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
+  }
+  set {
     name  = "f5.secretName"
     value = "f5-mongouri"
   }
@@ -41,6 +57,18 @@ resource "helm_release" "f5-web" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
   }
   set {
     name  = "f5.secretName"

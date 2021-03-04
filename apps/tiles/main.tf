@@ -11,9 +11,14 @@ resource "helm_release" "tiles-api_pretty-default-backend" {
   repository = "https://h.cfcr.io/bsord/charts"
   chart      = "pretty-default-backend"
   namespace  = "bsord-tiles"
+  version = "0.4.0"
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
   }
   set {
     name  = "bgColor"
@@ -33,6 +38,18 @@ resource "helm_release" "tiles-client" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
   }
   set {
     name  = "apiHost"
@@ -82,6 +99,18 @@ resource "helm_release" "tiles-api" {
   set {
     name  = "autoscaling.enabled"
     value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 1
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "200m"
   }
   set_sensitive {
     name  = "mongoURI"

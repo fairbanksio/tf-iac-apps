@@ -19,6 +19,22 @@ resource "helm_release" "jonfairbanks-homepage" {
     value = "true"
   }
   set {
+    name  = "autoscaling.enabled"
+    value = true
+  }
+  set {
+    name  = "autoscaling.minReplicas"
+    value = 2
+  }
+  set {
+    name  = "autoscaling.maxReplicas"
+    value = 3
+  }
+  set {
+    name  = "limits.cpu"
+    value = "100m"
+  }
+  set {
     name  = "ingress.hosts[0].host"
     value = cloudflare_record.jonfairbanks-homepage.hostname
   }
