@@ -216,8 +216,8 @@ resource "helm_release" "rcvr-api" {
     value = 3
   }
   set {
-    name  = "limits.cpu"
-    value = "200m"
+    name  = "resources.limits.cpu"
+    value = "100m"
   }
   set {
     name  = "ingress.enabled"
