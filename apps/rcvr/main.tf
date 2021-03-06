@@ -213,11 +213,15 @@ resource "helm_release" "rcvr-api" {
   }
   set {
     name  = "autoscaling.maxReplicas"
-    value = 3
+    value = 2
   }
   set {
     name  = "resources.limits.cpu"
     value = "200m"
+  }
+  set {
+    name  = "resources.limits.memory"
+    value = "200Mi"
   }
   set {
     name  = "ingress.enabled"
