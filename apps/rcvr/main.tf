@@ -221,7 +221,7 @@ resource "helm_release" "rcvr-api" {
   }
   set {
     name  = "resources.limits.memory"
-    value = "200Mi"
+    value = "250Mi"
   }
   set {
     name  = "ingress.enabled"
