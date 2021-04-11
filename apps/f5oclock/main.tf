@@ -53,7 +53,7 @@ resource "helm_release" "f5-web" {
   chart      = "f5-web"
   name       = "f5-web"
   namespace  = "f5oclock"
-  version = "1.1.3"
+  version = "1.1.4"
   set {
     name  = "autoscaling.enabled"
     value = true
@@ -96,7 +96,7 @@ resource "helm_release" "f5-web" {
   }
   set {
     name  = "image.tag"
-    value = "1.0.1"
+    value = "1.0.2"
   }
 }
 

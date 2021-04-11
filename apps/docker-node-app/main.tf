@@ -40,7 +40,7 @@ resource "helm_release" "docker-node-app" {
   }
   set {
     name  = "image.tag"
-    value = "2.0.4"
+    value = "2.0.6"
   }
 }
 
