@@ -34,12 +34,6 @@ module "f5oclock" {
 
 ## Home Page(s)
 
-module "homepage-bsord" {
-  source             = "./apps/homepage-bsord"
-  cloudflare_zone_id = var.cloudflare_zone_id_bsord
-  do_cluster_name    = var.do_cluster_name
-}
-
 module "homepage-jonfairbanks" {
   source             = "./apps/homepage-jonfairbanks"
   cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
