@@ -90,14 +90,6 @@ module "statuspage-bsord" {
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
 }
 
-## Tetris
-
-module "tetris" {
-  source             = "./apps/tetris"
-  cloudflare_zone_id = var.cloudflare_zone_id_bsord
-  do_cluster_name    = var.do_cluster_name
-}
-
 ## Tiles
 
 module "tiles" {
