@@ -90,17 +90,6 @@ module "statuspage-bsord" {
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
 }
 
-## Rcvr
-
-module "rcvr" {
-  source             = "./apps/rcvr"
-  cloudflare_zone_id = var.cloudflare_zone_id_bsord
-  do_cluster_name    = var.do_cluster_name
-  rcvr_dbpassword    = var.rcvr_dbpassword
-  rcvr_redispassword = var.rcvr_redispassword
-  rcvr_dkim_key      = var.rcvr_dkim_key
-}
-
 ## Mealie
 
 #module "mealie" {
