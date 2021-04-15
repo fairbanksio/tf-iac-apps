@@ -90,17 +90,6 @@ module "statuspage-bsord" {
   cloudflare_zone_id = var.cloudflare_zone_id_bsord
 }
 
-## Tiles
-
-module "tiles" {
-  source                  = "./apps/tiles"
-  cloudflare_zone_id      = var.cloudflare_zone_id_bsord
-  do_cluster_name         = var.do_cluster_name
-  tiles-api_mongouri      = var.tiles-api_mongouri
-  tiles-api_redishost     = var.tiles-api_redishost
-  tiles-api_redispassword = var.tiles-api_redispassword
-}
-
 ## Rcvr
 
 module "rcvr" {
