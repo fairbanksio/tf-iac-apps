@@ -36,7 +36,7 @@ resource "helm_release" "paypal-sandbox-dashboard" {
   }
   set {
     name  = "ingress.hosts[0].host"
-    value = cloudflare_record.paypal-sandbox-dashboard.hostname
+    value = "sandbox.fairbanks.dev"
   }
   set {
     name  = "ingress.hosts[0].paths[0]"
@@ -44,11 +44,3 @@ resource "helm_release" "paypal-sandbox-dashboard" {
   }
 }
 
-resource "cloudflare_record" "paypal-sandbox-dashboard" {
-  zone_id = var.cloudflare_zone_id
-  name    = "sandbox"
-  proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
-  type    = "A"
-  ttl     = 1
-}
