@@ -40,7 +40,7 @@ resource "helm_release" "json-formatter" {
   }
   set {
     name  = "image.tag"
-    value = "0.1.0"
+    value = "0.1.1"
   }
 }
 
