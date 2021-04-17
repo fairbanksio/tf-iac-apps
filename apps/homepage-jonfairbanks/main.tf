@@ -36,19 +36,10 @@ resource "helm_release" "jonfairbanks-homepage" {
   }
   set {
     name  = "ingress.hosts[0].host"
-    value = cloudflare_record.jonfairbanks-homepage.hostname
+    value = "fairbanks.dev"
   }
   set {
     name  = "ingress.hosts[0].paths[0]"
     value = "/"
   }
-}
-
-resource "cloudflare_record" "jonfairbanks-homepage" {
-  zone_id = var.cloudflare_zone_id
-  name    = "@"
-  proxied = true
-  value   = data.kubernetes_service.nginx-ingress-controller.status.0.load_balancer.0.ingress.0.ip
-  type    = "A"
-  ttl     = 1
 }
