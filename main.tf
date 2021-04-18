@@ -17,14 +17,6 @@ module "f5oclock" {
   f5_mongo_uri       = var.f5_mongo_uri
 }
 
-## Home Page(s)
-
-module "homepage-jonfairbanks" {
-  source             = "./apps/homepage-jonfairbanks"
-  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
-  do_cluster_name    = var.do_cluster_name
-}
-
 ## Hubot Instance(s)
 
 module "hubot-halbert" {
