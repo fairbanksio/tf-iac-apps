@@ -44,7 +44,7 @@ resource "helm_release" "f5-api" {
   }
   set {
     name  = "image.tag"
-    value = "1.0.1"
+    value = "1.0.6"
   }
 }
 
@@ -97,6 +97,6 @@ resource "helm_release" "f5-web" {
   }
   set {
     name  = "image.tag"
-    value = "1.0.2"
+    value = "1.0.3"
   }
 }
