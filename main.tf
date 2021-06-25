@@ -42,15 +42,3 @@ module "paypal-sandbox-dashboard" {
   do_cluster_name    = var.do_cluster_name
   ppsandbox_mongouri = var.ppsandbox_mongouri
 }
-
-## Status Page(s)
-
-module "statuspage-jonfairbanks" {
-  source             = "./apps/statuspage-jonfairbanks"
-  cloudflare_zone_id = var.cloudflare_zone_id_fairbanks
-}
-
-module "statuspage-bsord" {
-  source             = "./apps/statuspage-bsord"
-  cloudflare_zone_id = var.cloudflare_zone_id_bsord
-}
