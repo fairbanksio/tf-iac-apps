@@ -8,13 +8,6 @@ terraform {
   }
 }
 
-## Hubot Instance(s)
-
-module "hubot-halbert" {
-  source            = "./apps/hubot-halbert"
-  hubot_slack_token = var.hubot_slack_token_halbert
-}
-
 ## PayPal
 
 /* module "paypal-ipn" {
