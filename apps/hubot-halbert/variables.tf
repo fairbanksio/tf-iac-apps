@@ -1,1 +1,0 @@
-variable "hubot_slack_token" {}
